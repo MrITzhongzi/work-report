@@ -7,15 +7,21 @@ import registerServiceWorker from './registerServiceWorker';
 import {
     BrowserRouter as Router,
     Route,
-    Switch} from 'react-router-dom'
+    Switch,
+    Redirect
+} from 'react-router-dom'
 import App from './App';
 import Login from './component/login/login'
 
 ReactDOM.render(
-    <Router>
+    <Router
+        basename="/">
         <Switch>
+
+            <Route exact path="/" render={() => (<Redirect to="/main"/>)}/>
             <Route path="/login" component={Login}/>
-            <Route path="/"  component={App}/>
+            <Route path="/main" component={App}/>
+
         </Switch>
     </Router>, document.getElementById('root'));
 registerServiceWorker();

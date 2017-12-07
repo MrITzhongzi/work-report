@@ -1,5 +1,6 @@
 import React from 'react'
 import './side.css'
+import { Link } from 'react-router-dom'
 import { Menu, Icon, Button } from 'antd';
 const SubMenu = Menu.SubMenu;
 
@@ -25,6 +26,8 @@ class Side extends React.Component {
 
     }
     render() {
+        const baseUrl = this.props.props.match.url
+        console.log(baseUrl)
         return (
             <div className="side-style" style={this.state.sideWid}>
                 <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16,float: "left" }}>
@@ -38,13 +41,12 @@ class Side extends React.Component {
                     inlineCollapsed={this.state.collapsed}
                 >
                     <SubMenu key="sub1" title={<span><Icon type="mail" /><span>我的</span></span>}>
-                        <Menu.Item key="1">写工作报告</Menu.Item>
-                        <Menu.Item key="2">查看报告历史</Menu.Item>
+                        <Menu.Item key="1"><Link to={`${baseUrl}/write-report`}>写报告</Link></Menu.Item>
+                        <Menu.Item key="2"><Link to={`${baseUrl}/show-report`}>查看报告</Link></Menu.Item>
                     </SubMenu>
                     <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>同事</span></span>}>
-                        <Menu.Item key="3">查看报告人</Menu.Item>
-                        <Menu.Item key="4">查看报告</Menu.Item>
-
+                        <Menu.Item key="3"><Link to={`${baseUrl}/show-reporter`}>查看员工</Link></Menu.Item>
+                        <Menu.Item key="4"><Link to={`${baseUrl}/other-report`}>查看报告</Link></Menu.Item>
                     </SubMenu>
                     <Menu.Item key="5">
                         <Icon type="inbox" />
