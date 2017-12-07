@@ -5,14 +5,65 @@ import './login.css'
 const FormItem = Form.Item;
 
 class NormalLoginForm extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            serveName: "lhw",
+            servePwd: "123",
+            inputName: '',
+            inputPwd: '',
+            remember: false
+        }
+    }
+
     handleSubmit = (e) => {
         e.preventDefault();
+        const account = this.getAccountInfo()
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                if(values.remember){
+                    this.rememberPwd(values)
+                }
+                if(this.judgeAccount(account,values)){
+                    this.props.history.push('/')
+                }else{
+                    alert('failure ')
+                }
             }
         });
     }
+
+    /**
+     * 从服务器获取账号密码
+     * @returns {{userName: string, password: number}}
+     */
+    getAccountInfo(){
+        return {
+            userName: 'lhw',
+            password: 123
+        }
+    }
+
+    /**
+     * 判断输入的账号密码是否正确
+     * @param accountObj
+     * @param inputObj
+     * @returns {boolean}
+     */
+    judgeAccount (accountObj,inputObj){
+        if(accountObj.userName == inputObj.userName && accountObj.password == inputObj.password){
+            return true
+        }
+        return false
+    }
+
+    rememberPwd(values){
+        localStorage.setItem('work-re-name',values.userName)
+        localStorage.setItem('work-re-pwd',values.password)
+    }
+
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
@@ -21,14 +72,16 @@ class NormalLoginForm extends React.Component {
                     {getFieldDecorator('userName', {
                         rules: [{ required: true, message: 'Please input your username!' }],
                     })(
-                        <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+                        <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username"
+                                />
                     )}
                 </FormItem>
                 <FormItem>
                     {getFieldDecorator('password', {
                         rules: [{ required: true, message: 'Please input your Password!' }],
                     })(
-                        <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+                        <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password"
+                               />
                     )}
                 </FormItem>
                 <FormItem className="login-button">
@@ -38,8 +91,7 @@ class NormalLoginForm extends React.Component {
                     })(
                         <Checkbox>Remember me</Checkbox>
                     )}
-                    <a className="login-form-forgot" href="">Forgot password</a>
-                    <Button type="primary" htmlType="submit" className="login-form-button">
+                    <Button type="primary" htmlType="submit" className="login-form-button" ref="buttomref">
                         Log in
                     </Button>
                 </FormItem>
