@@ -5,7 +5,7 @@ import 'antd/dist/antd.css'
 
 import registerServiceWorker from './registerServiceWorker';
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Route,
     Switch,
     Redirect

@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Switch,
     Route
 } from 'react-router-dom'
@@ -23,13 +23,16 @@ class Main extends React.Component {
         const baseUrl = this.state.matchUrl
         return (
             <div className="main-con">
-                <Switch>
+                <Router>
+                    <Switch>
 
-                    <Route path={`${baseUrl}/write-report`} component={WriteReport}/>
-                    <Route path={`${baseUrl}/show-report`} component={showReport}/>
-                    <Route path={`${baseUrl}/show-reporter`} component={ShowReporter}/>
-                    <Route path={`${baseUrl}/other-report`} component={OtherReport}/>
-                </Switch>
+                        <Route path={`${baseUrl}/write-report`} component={WriteReport}/>
+                        <Route path={`${baseUrl}/show-report`} component={showReport}/>
+                        <Route path={`${baseUrl}/show-reporter`} component={ShowReporter}/>
+                        <Route path={`${baseUrl}/other-report`} component={OtherReport}/>
+                    </Switch>
+                </Router>
+
             </div>
         )
     }
