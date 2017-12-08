@@ -1,0 +1,67 @@
+
+.writeReport {
+    background: #ececec;
+    padding: 30px;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: scroll;
+}
+
+.work-content,
+.tomorrow-list {
+    width: 48%;
+    float: left;
+}
+.tomorrow-list {
+    margin-left: 20px   ;
+}
+
+.work-content::after {
+    content: '';
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+.report-content,
+.tomorrow-content{
+    /*background: red;*/
+    height: 400px;
+    overflow-y: scroll;
+    border: 2px solid #000c17;
+    border-radius: 10px;
+    position: relative;
+
+}
+.report-content::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.input-card {
+    float: left;
+    padding: 10px;
+    background: white;
+    margin: 10px;
+}
+
+.input-card textarea {
+    border: none;
+    border-top: 1px solid #cccccc;
+    padding: 8px;
+    resize: none;
+    outline: none;
+    width: 95%;
+    height: 200px;
+}
+
+.project-name {
+    display: block;
+    border: none;
+    outline: none;
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 700;
+}
