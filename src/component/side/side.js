@@ -27,7 +27,6 @@ class Side extends React.Component {
     }
     render() {
         const baseUrl = this.props.props.match.url
-        console.log(baseUrl)
         return (
             <div className="side-style" style={this.state.sideWid}>
                 <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16,float: "left" }}>
