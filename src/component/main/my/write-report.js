@@ -185,7 +185,6 @@ class WriteReport extends React.Component {
             this.setState({nextSummart: dom.value})
         }
 
-
     }
 
     render() {
