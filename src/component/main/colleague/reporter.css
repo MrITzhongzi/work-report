@@ -1,0 +1,83 @@
+
+.reporter {
+    width: 450px;
+    height: 200px;
+    border: 1px solid #41cc1e;
+    text-align: left;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+    float: left;
+    margin: 10px;
+    overflow: hidden;
+    position: relative;
+}
+.reporter::after {
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+.left {
+    width: 40%;
+    height: 100%;
+    float: left;
+}
+
+.reporter .left .reporter-name {
+
+    writing-mode: tb-rl;
+    font-size: 16px;
+    color: #000c17;
+    margin-top: 20px;
+    margin-left: 10px;
+
+}
+
+.left .reporter-head {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background: url(./../../../images/psb.jpg) center / cover no-repeat;
+    margin: 0 auto;
+    margin-top: -20px;
+}
+
+.right {
+    float: right;
+    width: 59%;
+    box-sizing: border-box;
+    padding: 5px;
+
+}
+
+.right .section{
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.right .discribe {
+
+    font-size: 13px;
+
+}
+
+.show-detail {
+    margin-right: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: orangered;
+    background-color: #e4fcf3;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+}
+

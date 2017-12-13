@@ -11,13 +11,6 @@ import ShowTable from './show-table'
 class ShowReport extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            startTime: '',
-            endTime: '',
-            showTime: '',
-
-        }
-
     }
 
     render() {

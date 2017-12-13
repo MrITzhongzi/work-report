@@ -3,17 +3,30 @@
 * */
 
 import React from 'react'
+import './show-reporter.css'
+import Reporter from './reporter'
+import {reportersData} from './data'
+
 
 class ShowReporter extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
-
+        this.state = {
+            // reporterDate: []
+        }
     }
 
-    render(){
+
+    render() {
         return (
-            <div>
-                查看员工
+            <div className="show-reporter">
+                <h4 className="reporter-title">查看同事</h4>
+                <div className="reporter-list">
+                    {reportersData.map(
+                        (data, index) => <Reporter key={index} parentData={data}></Reporter>
+                    )
+                    }
+                </div>
             </div>
         )
     }
