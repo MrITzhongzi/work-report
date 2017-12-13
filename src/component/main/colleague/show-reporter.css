@@ -19,6 +19,7 @@
     box-sizing: content-box;
 
 }
+
 .reporter-list::-webkit-scrollbar {
     display: none;
 }
