@@ -4,8 +4,8 @@
 
 import React from 'react'
 import './show-report.css'
-import DateRange from './date-range'
-import ShowTable from './show-table'
+import DateRange from '../pubComponent/date-range'
+import ShowTable from '../pubComponent/show-table'
 
 
 class ShowReport extends React.Component {

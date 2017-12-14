@@ -1,7 +1,7 @@
 import React from 'react'
 import {Table, Input, Button, Icon,Pagination  } from 'antd'
 import './show-table.css'
-import serveDate from './tabele-date'
+import serveDate from '../my/tabele-date'
 
 let data = serveDate;  //table的数据源
 
